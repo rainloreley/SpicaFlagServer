@@ -11,7 +11,6 @@ module.exports = async (req, res) => {
     req.params.id.trim().length === 0 ||
     typeof req.body.ring !== "string" ||
     !allowedRings.allowedRings.includes(req.body.ring)
-    //(req.body.ring !== "none" && req.body.ring !== "rainbow" && req.body.ring !== "trans" && req.body.ring !== "bisexual" && req.body.ring !== "pansexual" && req.body.ring !== "lesbian" && req.body.ring !== "asexual" && req.body.ring !== "genderqueer" && req.body.ring !== "genderfluid" && req.body.ring !== "agender" && req.body.ring !== "nonbinary")
     ) return res.status(400).json({ err: "badRequest" });
 
     if (req.body.ring === "supporter" && !spicaCredits.credits.includes(req.params.id)) return res.status(401).json({err: "notAllowed"});
