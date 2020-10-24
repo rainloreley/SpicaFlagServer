@@ -1,0 +1,16 @@
+{
+    "allowedRings": [
+        "none",
+        "rainbow",
+        "trans",
+        "bisexual",
+        "pansexual",
+        "lesbian",
+        "asexual",
+        "genderqueer",
+        "genderfluid",
+        "agender",
+        "nonbinary",
+        "supporter"
+    ]
+}
