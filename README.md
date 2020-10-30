@@ -9,6 +9,32 @@ Essentially, it just shows a colored ring around your profile picture in Spica.
 There are multiple rings with more coming soon (probably).
 You can find all current flags [here](utils/allowedRings.json).
 
+## Installation
+
+Spica Profile Flag Server uses MariaDB, so you need a working MariaDB instance before you can use this.
+
+There are 2 ways you can install this:
+
+### Docker
+
+1. Clone the repo
+2. Make sure docker and docker-compose is installed on your system
+3. Rename `docker-compose-example.yml` to `docker-compose.yml`
+4. **Optional but recommended:** Change the MariaDB root password (for the `db` and `spicaprofilering` instance!)
+5. Run `docker-compose up`
+6. Wait and get a coffee while it's loading ☕️
+
+### Manually
+
+1. Clone the repo
+2. Setup a MariaDB instance on your server/computer
+3. Rename `.env.example` to `.env` (the file might be invisible)
+4. Fill out all fields inside the `.env` file
+5. Run `npm i`
+6. Run `npm start`
+
+If you have Docker already installed, `docker-compose` is probably easier because you essentially just have to run 1 command (`docker-compose up`).
+
 ## How to use it
 
 There are only 2 endpoints (well technically 3 because there's `/` but idc about that).
