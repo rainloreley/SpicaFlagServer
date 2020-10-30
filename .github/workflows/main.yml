@@ -3,19 +3,23 @@ name: Deploy to CapRover
 on:
   push:
     branches: [ main ]
-
+    
+defaults:
+  run:
+    working-directory: ./
 jobs:
-  prepare:
+  checkdir:
     runs-on: ubuntu-latest
     steps:
-      - name: Install CapRover CLI
-        working-directory: ./
-        run: |
-          sudo npm install -g caprover
-          caprover deploy -h 'https://captain.main01.abmgrt.dev' -p ${{ secrets.CAPROVER_PASSWORD }} -b main -a spicaring 
-     #   uses: AlexxNB/caprover-action@v1
-    #    with:
-   #       server: 'https://captain.main01.abmgrt.dev'
-  #        password: '${{ secrets.CAPROVER_PASSWORD }}'
- #         appname: 'spicaring'
-#          branch: main
+      - name: Check directory
+        run: pwd
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: CapRover Deploy
+        uses: AlexxNB/caprover-action@v1
+        with:
+          server: 'https://captain.main01.abmgrt.dev'
+          password: '${{ secrets.CAPROVER_PASSWORD }}'
+          appname: 'spicaring'
+          branch: main
