@@ -1,0 +1,15 @@
+name: Deploy to CapRover
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: floms/caprover-deploy-action@v1
+        with:
+          host: 'https://captain.main01.abmgrt.dev'
+          password: '${{ secrets.CAPROVER_PASSWORD }}'
+          app: 'spicaring'
