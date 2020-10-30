@@ -8,7 +8,8 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: floms/caprover-deploy-action@v1
+      - name: CapRover App Deploy
+        uses: floms/action-caprover@v1
         with:
           host: 'https://captain.main01.abmgrt.dev'
           password: '${{ secrets.CAPROVER_PASSWORD }}'
