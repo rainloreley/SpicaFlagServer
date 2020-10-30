@@ -11,7 +11,7 @@ jobs:
       - name: Install CapRover CLI
         working-directory: ./
         run: |
-          npm install caprover
+          npm install -g caprover
           caprover deploy -h 'https://captain.main01.abmgrt.dev' -p ${{ secrets.CAPROVER_PASSWORD }} -b main -a spicaring 
      #   uses: AlexxNB/caprover-action@v1
     #    with:
