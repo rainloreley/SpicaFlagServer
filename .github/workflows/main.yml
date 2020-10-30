@@ -12,9 +12,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: CapRover Deploy
-        env:
-          NPM_CONFIG_PREFIX: "~/.npm-global"
         run: |
+          sudo chown -R $USER /usr/local/lib/node_modules
           npm install -g caprover
           caprover deploy -h 'https://captain.main01.abmgrt.dev' -p '${{ secrets.CAPROVER_PASSWORD }}' -b 'main' -a 'spicaring'
 #        uses: AlexxNB/caprover-action@v1
