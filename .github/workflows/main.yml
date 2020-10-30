@@ -5,13 +5,17 @@ on:
     branches: [ main ]
 
 jobs:
-  deploy:
+  prepare:
     runs-on: ubuntu-latest
     steps:
-      - name: CapRover Deploy
-        uses: AlexxNB/caprover-action@v1
-        with:
-          server: 'https://captain.main01.abmgrt.dev'
-          password: '${{ secrets.CAPROVER_PASSWORD }}'
-          appname: 'spicaring'
-          branch: main
+      - name: Install CapRover CLI
+        working-directory: /
+        run: |
+          npm install -g caprover
+          caprover deploy -h 'https://captain.main01.abmgrt.dev' -p ${{ secrets.CAPROVER_PASSWORD }} -b main -a spicaring 
+     #   uses: AlexxNB/caprover-action@v1
+    #    with:
+   #       server: 'https://captain.main01.abmgrt.dev'
+  #        password: '${{ secrets.CAPROVER_PASSWORD }}'
+ #         appname: 'spicaring'
+#          branch: main
