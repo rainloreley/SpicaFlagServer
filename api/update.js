@@ -5,7 +5,7 @@ const spicaCredits = require("../data/spicaCredits.json");
 
 module.exports = async (req, res) => {
     const authUser = await auth(req);
-    if (!authUser || authUser.id !== req.params.id) return res.status(401).json({ err: "badAuthorization" });
+    if (!authUser || authUser.user !== req.params.id) return res.status(401).json({ err: "badAuthorization" });
     if (typeof req.params.id !== "string" ||
     req.params.id.trim().length === 0 ||
     typeof req.body.ring !== "string" ||
