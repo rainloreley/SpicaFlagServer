@@ -14,3 +14,4 @@ jobs:
           host: 'https://captain.main01.abmgrt.dev'
           password: '${{ secrets.CAPROVER_PASSWORD }}'
           app: 'spicaring'
+          branch: main
