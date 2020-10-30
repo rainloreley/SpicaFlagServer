@@ -1,8 +1,7 @@
-const { readSync } = require("fs");
 const db = require("../db");
 const auth = require("../utils/auth");
-const allowedRings = require("../utils/allowedRings.json");
-const spicaCredits = require("../utils/spicaCredits.json");
+const allowedRings = require("../data/allowedRings.json");
+const spicaCredits = require("../data/spicaCredits.json");
 
 module.exports = async (req, res) => {
     const authUser = await auth(req);
@@ -10,10 +9,10 @@ module.exports = async (req, res) => {
     if (typeof req.params.id !== "string" ||
     req.params.id.trim().length === 0 ||
     typeof req.body.ring !== "string" ||
-    !allowedRings.allowedRings.includes(req.body.ring)
+    !allowedRings.includes(req.body.ring)
     ) return res.status(400).json({ err: "badRequest" });
 
-    if (req.body.ring === "supporter" && !spicaCredits.credits.includes(req.params.id)) return res.status(401).json({err: "notAllowed"});
+    if (req.body.ring === "supporter" && !spicaCredits.includes(req.params.id)) return res.status(401).json({err: "notAllowed"});
 
     const user = await db.User.findOne({
         where: {

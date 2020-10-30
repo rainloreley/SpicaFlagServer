@@ -2,6 +2,8 @@ require("dotenv").config();
 const express = require("express");
 const app = express();
 const db = require("./db");
+const spicaCredits = require("./data/spicaCredits.json");
+const allowedRings = require("./data/allowedRings.json");
 
 app.use(require("body-parser").json());
 app.use((err, req, res, next) =>
@@ -22,8 +24,19 @@ app.get("/", (req, res) => {
 	})
 })
 
+app.get("/credits", (req, res) => {
+	res.status(200).json({
+		credits: spicaCredits
+	})
+})
+app.get("/rings", (req, res) => {
+	res.status(200).json({
+		rings: allowedRings
+	})
+})
 app.get("/:id", require("./api/index"));
-app.post("/:id", require("./api/update"))
+app.post("/:id", require("./api/update"));
+
 
 // 404
 app.use((req, res) => {

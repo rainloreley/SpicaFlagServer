@@ -11,8 +11,24 @@ You can find all current flags [here](utils/allowedRings.json).
 
 ## How to use it
 
-There are only 2 endpoints (well technically 3 because there's `/` but idc about that).
+There are only 4 endpoints (well technically 5 because there's `/` but idc about that).
 
+- GET `/credits`
+  - Description: Get all credited users (allowed to get the "supporter" ring)
+  - URL parameters: ---
+  - Headers: ---
+  - Body: ---
+  - Responses:
+    - 200:
+      - "credits": Array of all uids
+- GET `/rings`
+  - Description: Get all rings currently allowed by the API
+  - URL parameters: ---
+  - Headers: ---
+  - Body: ---
+  - Responses:
+    - 200:
+      - "rings": Array of all rings
 - GET `/:id`
   - Description: Get the profile ring for a user.
   - URL parameters:
@@ -42,7 +58,25 @@ There are only 2 endpoints (well technically 3 because there's `/` but idc about
       - "uid": UID of the user
       - "ring": Ring/Flag that the user selected
       - "createdAt": Don't worry about that, it's just when the database entry got created
-      
+
+## Add to your own application
+
+Idk why you would do that but ok. There's not much to pay attention to, but I'd be nice if you can add all flags that are supported.
+Please make sure to use the right flag stripe colors, just google the flag and get the right color values for it.
+
+If you wanna add the supporter flag, you obviously can't google "Spica supporter flag", so here is how it looks like:
+
+4 Stripes, divided equally
+
+Colors:
+
+- Stripe 1: #F39C12
+- Stripe 2: #8E44AD
+- Stripe 3: #E74C3C
+- Stripe 4: #3498DB
+
+Make sure to show the "Support flag" option only if the user is allowed to use it.
+
 ## Contributing
 
 I'm too lazy to add a description or file for how to contribute now, just be nice to everyone and don't try to add some stupid shit.
