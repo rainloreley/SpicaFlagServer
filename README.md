@@ -1,6 +1,6 @@
 # Spica Profile Flag Server
 
-The server for the profile flags introduced in Spica 0.9.1 beta 16.
+The server for the profile flags introduced in Spica 0.9.1 beta 16
 
 ## What even is this?
 
