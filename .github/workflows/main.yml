@@ -8,18 +8,18 @@ defaults:
   run:
     working-directory: ./
 jobs:
-  checkdir:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Check directory
-        run: pwd
   deploy:
     runs-on: ubuntu-latest
     steps:
       - name: CapRover Deploy
-        uses: AlexxNB/caprover-action@v1
-        with:
-          server: 'https://captain.main01.abmgrt.dev'
-          password: '${{ secrets.CAPROVER_PASSWORD }}'
-          appname: 'spicaring'
-          branch: main
+        env:
+          NPM_CONFIG_PREFIX: "~/.npm-global"
+        run: |
+          npm install -g caprover
+          caprover deploy -h 'https://captain.main01.abmgrt.dev' -p '${{ secrets.CAPROVER_PASSWORD }}' -b 'main' -a 'spicaring'
+#        uses: AlexxNB/caprover-action@v1
+#        with:
+#          server: 'https://captain.main01.abmgrt.dev'
+#          password: '${{ secrets.CAPROVER_PASSWORD }}'
+#          appname: 'spicaring'
+#          branch: main
