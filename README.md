@@ -7,7 +7,7 @@ The server for the profile flags introduced in Spica 0.9.1 beta 16
 Wow, good question. It's a thing. And I actually don't know why I added it.
 Essentially, it just shows a colored ring around your profile picture in Spica.
 There are multiple rings with more coming soon (probably).
-You can find all current flags [here](utils/allowedRings.json).
+You can find all current flags [here](data/allowedRings.json).
 
 ## Installation
 
@@ -75,11 +75,11 @@ There are only 4 endpoints (well technically 5 because there's `/` but idc about
   - Headers:
     - "Authorization": Token that alles uses for authorization (used to make a request to `https://micro.alles.cx/api/me`)
   - Body (JSON):
-    - "ring": any ring from the allowed [ring/flags list](utils/allowedRings.json)
+    - "ring": any ring from the allowed [ring/flags list](data/allowedRings.json)
   - Responses:
     - 401 "badAuthorization": The token is invalid or isn't for the user with the UID `id`
     - 400 "badRequest": `id` or `ring` is missing | ring isn't part of the allowed ring list
-    - 401 "notAllowed": you tried to select the "supporter" ring but you're not part of the ["spicaCredits" list](utils/spicaCredits.json)
+    - 401 "notAllowed": you tried to select the "supporter" ring but you're not part of the ["spicaCredits" list](data/spicaCredits.json)
     - 200:
       - "uid": UID of the user
       - "ring": Ring/Flag that the user selected
