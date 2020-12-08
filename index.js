@@ -18,25 +18,24 @@ db.sync().then(() => {
 
 app.get("/", (req, res) => {
 	res.status(200).json({
-		"name": "Spica Profile Flag server",
-		"version": "high enough",
-		"repo": "https://github.com/SpicaApp/FlagServer"
-	})
-})
+		name: "Spica Profile Flag server",
+		version: "high enough",
+		repo: "https://github.com/SpicaApp/FlagServer",
+	});
+});
 
 app.get("/credits", (req, res) => {
 	res.status(200).json({
-		credits: spicaCredits
-	})
-})
+		credits: spicaCredits,
+	});
+});
 app.get("/rings", (req, res) => {
 	res.status(200).json({
-		rings: allowedRings
-	})
-})
+		rings: allowedRings,
+	});
+});
 app.get("/:id", require("./api/index"));
 app.post("/:id", require("./api/update"));
-
 
 // 404
 app.use((req, res) => {
